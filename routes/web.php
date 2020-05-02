@@ -13,7 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'UserController@index');
+Route::get('/', function() {
+    return view('welcome');
+});
+Route::get('/listUsers', 'UserController@index');
 Route::post('users', 'UserController@store')->name('users.store');
 Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
 
@@ -25,3 +28,6 @@ Route::get('/post', function() {
 Route::post('post', 'PostController@store')->name('posts.store');
 
 Route::view('blade', 'home');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
