@@ -18,3 +18,8 @@ Route::post('users', 'UserController@store')->name('users.store');
 Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
 
 Route::resource('pages', 'PageController'); // 7 routes
+
+Route::get('/post', function() {
+    return view('post');
+});
+Route::post('post', 'PostController@store')->name('posts.store');
