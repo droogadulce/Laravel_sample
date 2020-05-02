@@ -31,3 +31,15 @@ Route::view('blade', 'home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+use App\Post;
+Route::get('eloquent', function() {
+    $posts = Post::where('id', '>=', '20')
+        ->orderBy('id', 'desc')
+        ->take(3)
+        ->get();
+
+    foreach ($posts as $post) {
+        echo "$post->id $post->title <br>";
+    }
+});
