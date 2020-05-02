@@ -23,3 +23,5 @@ Route::get('/post', function() {
     return view('post');
 });
 Route::post('post', 'PostController@store')->name('posts.store');
+
+Route::view('blade', 'home');
